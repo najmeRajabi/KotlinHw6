@@ -19,7 +19,7 @@ class Information : AppCompatActivity() {
 
         binding.registerBtn.setOnClickListener{
             if (checkFiled()){
-
+                fillFiled()
             }
         }
     }
@@ -47,6 +47,14 @@ class Information : AppCompatActivity() {
     }
     fun fillFiled(){
         name = binding.nameEditText.text.toString()
+        username = binding.usernameEditText.text.toString()
+        email = binding.emailEditText.text.toString()
+        password = binding.passwordEditText.text.toString()
+        if (binding.genderRadioGroup.checkedRadioButtonId == binding.femaleRadioButton.id){
+            gender = Gender.Female
+        }else{
+            gender = Gender.Male
+        }
     }
 }
 
