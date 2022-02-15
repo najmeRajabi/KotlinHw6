@@ -4,6 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllaedinConstraintLayout">
+    tools:context=".AladdinConstraintLayout">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="0dp"
+        android:src="@drawable/aladin1"
+        app:layout_constraintBottom_toBottomOf="@id/guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image2"
+        android:layout_width="82dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="250dp"
+        android:src="@drawable/alladin2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/aladdin_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Aladdin (2019)"
+        android:textColor="#111111"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@id/image2"
+        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/time_txv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:text="May 8, 2019"
+        android:textColor="#666666"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@id/image2"
+        app:layout_constraintTop_toBottomOf="@id/aladdin_txv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_rent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="8dp"
+        android:text="Rent form $4.99"
+        app:layout_constraintEnd_toStartOf="@+id/btn_buy"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_txv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_buy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="8dp"
+        android:text="buy form $9.99"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_rent"
+        app:layout_constraintTop_toBottomOf="@id/time_txv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.53" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

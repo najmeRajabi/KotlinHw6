@@ -13,7 +13,7 @@
             android:name=".TicTacToe"
             android:exported="false" />
         <activity
-            android:name=".AllaedinConstraintLayout"
+            android:name=".AladdinConstraintLayout"
             android:exported="false" />
         <activity
             android:name=".Information"

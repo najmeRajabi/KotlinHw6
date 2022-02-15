@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.q3Btn.setOnClickListener {
-            val intent = Intent(this ,AllaedinConstraintLayout::class.java)
+            val intent = Intent(this ,AladdinConstraintLayout::class.java)
             startActivity(intent)
         }
     }
