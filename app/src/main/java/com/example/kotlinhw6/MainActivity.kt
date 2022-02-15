@@ -17,7 +17,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this ,Information::class.java)
             startActivity(intent)
         }
-        binding.q2Btn.setOnClickListener {  }
-        binding.q3Btn.setOnClickListener {  }
+        binding.q2Btn.setOnClickListener {
+            val intent = Intent(this ,TicTacToe::class.java)
+            startActivity(intent)
+        }
+        binding.q3Btn.setOnClickListener {
+            val intent = Intent(this ,AllaedinConstraintLayout::class.java)
+            startActivity(intent)
+        }
     }
 }

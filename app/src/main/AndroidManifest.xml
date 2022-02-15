@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinHw6">
         <activity
+            android:name=".TicTacToe"
+            android:exported="false" />
+        <activity
+            android:name=".AllaedinConstraintLayout"
+            android:exported="false" />
+        <activity
             android:name=".Information"
             android:exported="false" />
         <activity
