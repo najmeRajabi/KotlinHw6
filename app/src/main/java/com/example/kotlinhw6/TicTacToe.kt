@@ -8,49 +8,68 @@ import kotlin.properties.Delegates
 
 class TicTacToe : AppCompatActivity() {
     lateinit var binding: ActivityTicTacToeBinding
-    var turnX = true
+    var turnX = false
     var turnO = false
-    var win = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTicTacToeBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-//        startGame()
-//        binding.resetBtn.setOnClickListener { reset()
-//            startGame() }
 
+        turnO = true
+        startGame()
+        binding.resetBtn.setOnClickListener {
+            reset()
+            startGame()
+        }
 
 
     }
-    private fun startGame(){
-        while (!win){
-            changTurn()
-            binding.box1.setOnClickListener{clickPlayer(binding.box1)}
-            binding.box2.setOnClickListener{clickPlayer(binding.box2)}
-            binding.box3.setOnClickListener{clickPlayer(binding.box3)}
-            binding.box4.setOnClickListener{clickPlayer(binding.box4)}
-            binding.box5.setOnClickListener{clickPlayer(binding.box5)}
-            binding.box6.setOnClickListener{clickPlayer(binding.box6)}
-            binding.box7.setOnClickListener{clickPlayer(binding.box7)}
-            binding.box8.setOnClickListener{clickPlayer(binding.box8)}
-            binding.box9.setOnClickListener{clickPlayer(binding.box9)}
+
+    private fun startGame() {
+
+
+        binding.box1.setOnClickListener {
+            clickPlayer(binding.box1)
             checkWinner()
+        }
+        binding.box2.setOnClickListener {
+            clickPlayer(binding.box2)
+            checkWinner()
+        }
+        binding.box3.setOnClickListener {
+            clickPlayer(binding.box3)
+            checkWinner()
+        }
+        binding.box4.setOnClickListener {
+            clickPlayer(binding.box4)
+            checkWinner()
+        }
+        binding.box5.setOnClickListener {
+            clickPlayer(binding.box5)
+            checkWinner()
+        }
+        binding.box6.setOnClickListener {
+            clickPlayer(binding.box6)
+            checkWinner()
+        }
+        binding.box7.setOnClickListener {
+            clickPlayer(binding.box7)
+            checkWinner()
+        }
+        binding.box8.setOnClickListener {
+            clickPlayer(binding.box8)
+            checkWinner()
+        }
+        binding.box9.setOnClickListener {
+            clickPlayer(binding.box9)
+            checkWinner()
+        }
 
-        }
+
     }
-    private fun changTurn(){
-        if (turnO) {
-            !turnO
-            turnX
-            binding.drawTxv.text = "draw X player"
-        }else if (turnX){
-            !turnX
-            turnO
-            binding.drawTxv.text = "draw O player"
-        }
-    }
-    private fun reset(){
+
+    private fun reset() {
         binding.box1.text = ""
         binding.box2.text = ""
         binding.box3.text = ""
@@ -60,51 +79,101 @@ class TicTacToe : AppCompatActivity() {
         binding.box7.text = ""
         binding.box8.text = ""
         binding.box9.text = ""
-        changTurn()
+
 
     }
-    private fun checkWinner(){
-        if (binding.box1.text == binding.box2.text &&
-            binding.box1.text == binding.box3.text){
-            win
+
+    private fun checkWinner() {
+        if (binding.box1.text.isNotBlank() &&
+            binding.box2.text.isNotBlank() &&
+            binding.box3.text.isNotBlank() &&
+            binding.box1.text == binding.box2.text &&
+            binding.box1.text == binding.box3.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box1.text}"
-        }else if (binding.box4.text == binding.box5.text &&
-                binding.box5.text == binding.box6.text){
-                win
+        } else if (binding.box4.text.isNotBlank() &&
+            binding.box5.text.isNotBlank() &&
+            binding.box6.text.isNotBlank() &&
+            binding.box4.text == binding.box5.text &&
+            binding.box5.text == binding.box6.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box4.text}"
-        }else if (binding.box7.text == binding.box8.text &&
-            binding.box8.text == binding.box9.text){
-            win
+        } else if (binding.box9.text.isNotBlank() &&
+            binding.box7.text.isNotBlank() &&
+            binding.box8.text.isNotBlank() &&
+            binding.box7.text == binding.box8.text &&
+            binding.box8.text == binding.box9.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box8.text}"
-        }else if (binding.box1.text == binding.box4.text &&
-            binding.box1.text == binding.box7.text){
-            win
+        } else if (binding.box1.text.isNotBlank() &&
+            binding.box4.text.isNotBlank() &&
+            binding.box7.text.isNotBlank() &&
+            binding.box1.text == binding.box4.text &&
+            binding.box1.text == binding.box7.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box4.text}"
-        }else if (binding.box2.text == binding.box5.text &&
-            binding.box5.text == binding.box8.text){
-            win
+        } else if (binding.box2.text.isNotBlank() &&
+            binding.box5.text.isNotBlank() &&
+            binding.box8.text.isNotBlank() &&
+            binding.box2.text == binding.box5.text &&
+            binding.box5.text == binding.box8.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box5.text}"
-        }else if (binding.box3.text == binding.box6.text &&
-            binding.box9.text == binding.box6.text){
-            win
+        } else if (binding.box3.text.isNotBlank() &&
+            binding.box6.text.isNotBlank() &&
+            binding.box9.text.isNotBlank() &&
+            binding.box3.text == binding.box6.text &&
+            binding.box9.text == binding.box6.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box6.text}"
-        }else if (binding.box3.text == binding.box5.text &&
-            binding.box5.text == binding.box7.text){
-            win
+        } else if (binding.box3.text.isNotBlank() &&
+            binding.box5.text.isNotBlank() &&
+            binding.box7.text.isNotBlank() &&
+            binding.box3.text == binding.box5.text &&
+            binding.box5.text == binding.box7.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box5.text}"
-        }else if (binding.box1.text == binding.box5.text &&
-            binding.box5.text == binding.box9.text){
-            win
+        } else if (binding.box1.text.isNotBlank() &&
+            binding.box5.text.isNotBlank() &&
+            binding.box9.text.isNotBlank() &&
+            binding.box1.text == binding.box5.text &&
+            binding.box5.text == binding.box9.text
+        ) {
+            enableEmptyBlocksAfterWin()
             binding.drawTxv.text = " winner is ${binding.box5.text}"
         }
     }
-    private fun clickPlayer(box :TextView){
-        if (turnX){
+
+    private fun clickPlayer(box: TextView) {
+        if (turnX) {
             box.text = "X"
-            changTurn()
-        }else if (turnO){
+            box.isCursorVisible = false
+            turnX = false
+            binding.drawTxv.text = "draw O player"
+        } else if (!turnX) {
             box.text = "O"
-            changTurn()
+            box.isClickable = false
+            turnX = true
+            binding.drawTxv.text = "draw X player"
         }
+    }
+
+    fun enableEmptyBlocksAfterWin() {
+        binding.box1.isClickable = false
+        binding.box2.isClickable = false
+        binding.box3.isClickable = false
+        binding.box4.isClickable = false
+        binding.box5.isClickable = false
+        binding.box6.isClickable = false
+        binding.box7.isClickable = false
+        binding.box8.isClickable = false
+        binding.box9.isClickable = false
     }
 }
